@@ -9,5 +9,9 @@ ENV RAILS_ENV $APP_ENV
 ENV APP_HOME /usr/local/docker_test
 WORKDIR $APP_HOME
 
+
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
 RUN bundle install
+
 COPY . $APP_HOME
