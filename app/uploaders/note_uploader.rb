@@ -1,12 +1,11 @@
 class NoteUploader < CarrierWave::Uploader::Base
-  # if Rails.env.development?
-  #   storage :file
-  # elsif Rails.env.test?
-  #   storage :file
-  # else
-  #   storage :fog
-  # end
-  storage :fog
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 
   def content_type_whitelist
     [/image\//]
