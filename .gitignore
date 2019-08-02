@@ -65,4 +65,13 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
+# Ignore emacs's backup file
 *~
+
+# Ignore aws access key
+.env
+
+# Ignore settings
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
