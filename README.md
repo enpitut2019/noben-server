@@ -1,5 +1,24 @@
 # README
 
+## チーム情報
+プロダクト名: ノー勉
+
+エレベーターピッチ:
+
+　授業のノートの不足を解決したい大学生向けの手軽にノートの共有が・議論ができるサービス、ノー勉!
+ 
+　これはノートの検索・共有・議論ができ、LINEやSlackのような手軽さで共有でき、議論にも集中できる。　
+ 
+メンバー:
+
+　フロント: 共田圭佑, 鈴木遥介, 和田見一真
+ 
+　サーバー: 金子平, 成瀬大悟, 野口貴史, 内田輝(P.O.)
+ 
+  S.M.: Boger Matheus
+  
+デプロイ先URL: https://noben-front.herokuapp.com/
+
 ## Setup
 1. `git clone https://github.com/enpitut2019/noben-server.git`
 1. `cd noben-server`
