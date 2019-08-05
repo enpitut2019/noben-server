@@ -1,4 +1,5 @@
 class Note < ApplicationRecord
-  validates :subject, presence: true
   has_many :pages
+
+  validates :subject_name, presence: true
 end
