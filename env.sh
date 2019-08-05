@@ -1,4 +1,4 @@
-project_name='docker_test'
+project_name='noben'
 alias docker-compose="docker-compose -p $project_name"
 alias bundle="docker-compose run -e RAILS_ENV=development --rm web bundle"
 alias build="docker-compose build"

@@ -6,7 +6,7 @@ ARG app_env
 ENV APP_ENV ${app_env:-production}
 ENV RAILS_ENV $APP_ENV
 
-ENV APP_HOME /usr/local/docker_test
+ENV APP_HOME /usr/local/noben
 WORKDIR $APP_HOME
 
 
