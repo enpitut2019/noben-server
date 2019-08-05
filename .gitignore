@@ -24,7 +24,6 @@ config/master.key
 # config/secrets.yml
 
 # dotenv
-# TODO Comment out this rule if environment variables can be committed
 .env
 
 ## Environment normalization:
@@ -64,5 +63,15 @@ yarn-debug.log*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+public/uploads*
 
+# Ignore emacs's backup file
 *~
+
+# Ignore aws access key
+.env
+
+# Ignore settings
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
