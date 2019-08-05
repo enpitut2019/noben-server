@@ -1,3 +1,5 @@
 class Note < ApplicationRecord
-  validates :image_url, presence: true
+  has_many :pages
+
+  validates :subject_name, presence: true
 end
