@@ -20,6 +20,12 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:image_url)
+    params.require(:note).permit(
+      :subject_name,
+      page_attributes: [
+        :image_url,
+        :order
+      ]
+    )
   end
 end
