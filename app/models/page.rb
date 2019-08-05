@@ -1,8 +1,8 @@
 class Page < ApplicationRecord
-    mount_uploader :image_url, PageUploader
+    mount_uploader :image, ImageUploader
 
     belongs_to :note
 
     validates :order, presence: true
-    validates :image_url, presence: true
+    validates :image, presence: true
 end
