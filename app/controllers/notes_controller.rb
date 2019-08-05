@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   end
 
   def index
-    render json: Note.all
+    render json: Note.all.includes(:pages, :comments)
   end
 
   def create
