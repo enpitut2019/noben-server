@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/usr/local/docker_test
+      - .:/usr/local/noben
       - bundle-data:/usr/local/bundle
     environment:
       DATABASE_HOST: postgres
