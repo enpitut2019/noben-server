@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if comment.save
       render json: comment
     else
-      render json: { status: 400, message: 'Bad Request' }
+      render status:400, json: { status: 400, message: 'Bad Request' }
     end
   end
 
