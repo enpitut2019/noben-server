@@ -12,8 +12,7 @@ class NotesController < ApplicationController
     end
 
     if params[:sort_mode].present?
-      sort_mode = params[:sort_mode]
-      case sort_mode
+      case params[:sort_mode]
       when "newest" then
         notes = notes.order(created_at: :desc)
       when "oldest" then
