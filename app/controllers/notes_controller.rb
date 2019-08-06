@@ -27,10 +27,12 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params[:note][:tags_attributes] = params[:tags]&.gsub(/\s+/, "").split(',').map do |name|
-      {
-        name: name
-      }
+    if params[:tags].present?
+      params[:note][:tags_attributes] = params[:tags].gsub(/\s+/, '').split(',').map do |name|
+        {
+          name: name
+        }
+      end
     end
 
     params.require(:note).permit(
