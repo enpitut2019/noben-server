@@ -6,9 +6,9 @@ class NotesController < ApplicationController
   def index
     notes = Note.all.includes(:pages, :comments, :tags)
 
-    if params[:tags].present?
-      tags = params[:tags].gsub(/\s+/, '').split(',')
-      notes = notes.where(tags: { name: tags })
+    if params[:search_words].present?
+      search_words = params[:search_words].gsub(/\s+/, '').split(',')
+      notes = notes.where(tags: { name: search_words }).or(notes.where(subject_name: search_words))
     end
 
     render json: notes
