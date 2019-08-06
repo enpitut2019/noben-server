@@ -21,11 +21,13 @@ class NotesController < ApplicationController
         notes = notes.order(subject_name: :asc)
       end
     end
-      
+
     render json: notes
   end
 
   def create
+    render status: 400 unless note_params[:pages_attributes].values.all? { |attr| attr[:image].present? }
+
     note = Note.new(note_params)
 
     if note.save
