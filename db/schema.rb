@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2019_08_06_031927) do
     t.index ["note_id"], name: "index_pages_on_note_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["note_id"], name: "index_tags_on_note_id"
+  end
+
   add_foreign_key "comments", "notes"
   add_foreign_key "pages", "notes"
+  add_foreign_key "tags", "notes"
 end

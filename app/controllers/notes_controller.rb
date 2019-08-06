@@ -4,7 +4,14 @@ class NotesController < ApplicationController
   end
 
   def index
-    render json: Note.all.includes(:pages, :comments)
+    notes = Note.all.includes(:pages, :comments, :tags)
+
+    if params[:tags].present?
+      tags = params[:tags].gsub(/\s+/, '').split(',')
+      notes = notes.where(tags: { name: tags })
+    end
+
+    render json: notes
   end
 
   def create
@@ -20,11 +27,22 @@ class NotesController < ApplicationController
   private
 
   def note_params
+    if params[:tags].present?
+      params[:note][:tags_attributes] = params[:tags].gsub(/\s+/, '').split(',').map do |name|
+        {
+          name: name
+        }
+      end
+    end
+
     params.require(:note).permit(
       :subject_name,
       pages_attributes: [
         :image,
         :order
+      ],
+      tags_attributes: [
+        :name
       ]
     )
   end
