@@ -1,27 +1,29 @@
+# coding: utf-8
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Comment, type: :model do 
   
+  before do
+    @note = Note.new(
+      subject_name: "情報数学"
+    )
+  end
+
   it "is valid with a content, and user_name" do
-    @comment = Comment.new(
-      id: 1,
-      note_id: 1,
+    @comment = @note.comments.new(
       user_name: "Bob",
-      content: "This is a test-message.",
-      created_at: "2019/8/6",
-      updated_at: "2019/8/6"
+      content: "This is a test-message."
     )
     expect(@comment).to be_valid
   end
 
   it "is invalid without a user_name" do
-    @comment = Comment.new(user_name: nil)
+    @comment = @note.comments.new(user_name: nil, content: "hoge")
     expect(@comment.valid?).to eq(false)
   end
-
+  
   it "is invalid without a content" do
-    @comment = Comment.new(content: nil)
-    expect(@comment.valid?).to eq(false)
+    @comment = @note.comments.new(user_name: "hoge", content: nil)
+    expect(@comment.valid?).to eq(false) 
   end
 end
