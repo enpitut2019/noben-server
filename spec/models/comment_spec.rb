@@ -18,12 +18,12 @@ RSpec.describe Comment, type: :model do
   end
 
   it "is invalid without a user_name" do
-    @comment = @note.comments.new(user_name: nil, content: "hoge")
+    @comment = @note.comments.new(user_name: nil)
     expect(@comment.valid?).to eq(false)
   end
   
   it "is invalid without a content" do
-    @comment = @note.comments.new(user_name: "hoge", content: nil)
+    @comment = @note.comments.new(content: nil)
     expect(@comment.valid?).to eq(false) 
   end
 end
