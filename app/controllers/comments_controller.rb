@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if comment.save
       render json: comment
     else
-      render status: 400, json: { status: 400, message: 'Bad Request' }
+      handle_400 comment
     end
   end
 
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(
-      :content, 
+      :content,
       :user_name
     )
   end

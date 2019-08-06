@@ -20,7 +20,7 @@ class NotesController < ApplicationController
     if note.save
       render json: note
     else
-      render status: 400, json: { status: 400, message: 'Bad Request' }
+      handle_400 note
     end
   end
 
