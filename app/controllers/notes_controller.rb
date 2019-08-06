@@ -20,11 +20,20 @@ class NotesController < ApplicationController
   private
 
   def note_params
+    params[:note][:tags_attributes] = params[:tags].split(',').map do |name|
+      {
+        name: name
+      }
+    end
+
     params.require(:note).permit(
       :subject_name,
       pages_attributes: [
         :image,
         :order
+      ],
+      tags_attributes: [
+        :name
       ]
     )
   end
