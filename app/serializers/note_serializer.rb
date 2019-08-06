@@ -3,4 +3,5 @@ class NoteSerializer < ActiveModel::Serializer
 
   has_many :pages
   has_many :comments
+  has_many :tags
 end
