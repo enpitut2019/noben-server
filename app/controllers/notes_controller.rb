@@ -11,6 +11,17 @@ class NotesController < ApplicationController
       notes = notes.where(tags: { name: search_words }).or(notes.where(subject_name: search_words))
     end
 
+    if params[:sort_mode].present?
+      case params[:sort_mode]
+      when "newest" then
+        notes = notes.order(created_at: :desc)
+      when "oldest" then
+        notes = notes.order(created_at: :asc)
+      when "subject" then
+        notes = notes.order(subject_name: :asc)
+      end
+    end
+      
     render json: notes
   end
 
