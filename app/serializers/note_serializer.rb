@@ -4,4 +4,8 @@ class NoteSerializer < ActiveModel::Serializer
   has_many :pages
   has_many :comments
   has_many :tags
+
+  def pages
+    object.pages.order(order: :asc)
+  end
 end
