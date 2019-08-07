@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
   def create
     note = Note.find(params[:note_id])
-    comment_params[:user_name] = 'ななしさん' if comment_params[:user_name].blank?
-    comment = note.comments.new(comment_params)
+    create_params = comment_params
+    create_params[:user_name] = 'ななしさん' if create_params[:user_name].blank?
+    comment = note.comments.new(create_params)
 
     if comment.save
       render json: comment
