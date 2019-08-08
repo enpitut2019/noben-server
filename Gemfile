@@ -28,6 +28,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'bullet', '~> 6.0.1'
+
+  gem 'rspec-rails', '~> 3.8'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
