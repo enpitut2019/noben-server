@@ -109,7 +109,7 @@ GEM
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.8.0)
-    excon (0.65.0)
+    excon (0.71.0)
     ffi (1.11.1)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
